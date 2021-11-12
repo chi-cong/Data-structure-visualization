@@ -1,9 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Header from "./header";
+import TypeBtn from "./types";
 function App() {
   return (
-    <h1>Nothing</h1>
+    <div className="container">
+      <Header />
+      <TypeBtn />
+    </div>
   );
 }
 
