@@ -18,8 +18,6 @@ const TypeBtn = () => {
         btn.classList.remove("activatedBtn");
       }
     });
-    console.log(currentType);
-    console.log(getAllBtn);
   };
   useEffect(() => activateBtn(currentType));
   return (
