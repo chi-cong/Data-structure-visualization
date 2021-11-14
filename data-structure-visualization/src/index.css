@@ -36,10 +36,11 @@ header > h1 {
   justify-content: center;
 }
 .typeBtn {
-  border: 2px #b1a7a6 solid;
+  border: 0px #b1a7a6 solid;
   margin: 0 5px 0 5px;
   height: 6.5vh;
   font-size: 1.5vw;
+  background: white;
 }
 .typeBtn:hover {
   background: #b1a7a6;
