@@ -1,9 +1,10 @@
-import Header from "./header";
 import TypeBtn from "./types";
 function App() {
   return (
     <div className="container">
-      <Header />
+    <header>
+      <h1>Data structure visualization</h1>
+    </header>
       <TypeBtn />
     </div>
   );
