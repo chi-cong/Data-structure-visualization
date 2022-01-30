@@ -1,19 +1,22 @@
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 
 const Array = () => {
   const actions = ['Adding', 'Deleting'];
+  const selectElement = useRef(null)
   const [currentAct, setCurrentAct] = useState(actions[0]);
-  const changeAction = (action) => {
-    console.log(action);
-    setCurrentAct(action);
+  const changeAction = () => {
+    setCurrentAct(selectElement.current.value);
+  }
+  const doAction = (e) => {
+    e.preventDefault() 
   }
   return (
     <div className="inputForm">
       <div className="method_choosing">
         <span className="method_title">methods</span>
-        <select name="" id="methods" onChange={changeAction()}>
+        <select id="methods" ref={selectElement} onChange={changeAction}>
           {actions.map((action) => {
-            return [<option value={action}>{action}</option>]
+            return [<option key = "whatever" value={action}>{action}</option>]
           })}
         </select>
       </div>
@@ -21,7 +24,7 @@ const Array = () => {
         <form className="action_form">
           <span className="action_title">add value</span>
           <input type="text" />
-          <button type="submit" className="action_btn">
+          <button type="submit" className="action_btn" onSubmit={doAction}>
             submit
           </button>
         </form>
