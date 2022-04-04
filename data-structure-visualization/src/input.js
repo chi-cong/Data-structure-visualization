@@ -1,9 +1,13 @@
 import Array from "./array";
 
 const InputForm = ({ currentType }) => {
-  // const [action, setActions] = useState(actions[0]);
+  const checkingInput = (value) => {
+    if (value.length <= 2) return true
+    else return false;
+  }
+
   if (currentType === "array") {
-  return <Array></Array>;
+    return <Array checker={checkingInput}  ></Array>;
   } else if (currentType === "linked list") {
     return <h1>this is linked list</h1>;
   } else if (currentType === "binary tree") {

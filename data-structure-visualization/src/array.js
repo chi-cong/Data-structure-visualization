@@ -1,14 +1,21 @@
-import {useState, useRef} from 'react';
+import { useState, useRef } from 'react';
 
-const Array = () => {
+
+
+const Array = ({checker}) => {
   const actions = ['Adding', 'Deleting'];
-  const selectElement = useRef(null)
   const [currentAct, setCurrentAct] = useState(actions[0]);
+  const [rightInput, setRightInput] = useState();
+  const selectElement = useRef(null)
+  const actionForm = useRef(null)
   const changeAction = () => {
     setCurrentAct(selectElement.current.value);
   }
   const doAction = (e) => {
     e.preventDefault() 
+  }
+  const handleInput = (e) => {
+    setRightInput(checker(e.target.value));
   }
   return (
     <div className="inputForm">
@@ -21,14 +28,15 @@ const Array = () => {
         </select>
       </div>
       <div className="action">
-        <form className="action_form">
-          <span className="action_title">add value</span>
-          <input type="text" />
-          <button type="submit" className="action_btn" onSubmit={doAction}>
-            submit
+        <form className="action_form" ref={actionForm} onSubmit={doAction}>
+          <span className="action_title">{`${currentAct} value`}</span>
+          <input type="text" onChange={handleInput}/>
+          <button type="submit" className="action_btn" >
+            Do it 
           </button>
         </form>
       </div>
+      {rightInput && <p>Input value is not correct</p>}
       <div className="note">
         <h2>*note :</h2>
         <p>pls do not put something longer than 2 characters</p>
